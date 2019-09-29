@@ -573,6 +573,8 @@
 /* --------------------------------------------------jigsaw-fix--------------------------------------------- */
 .jigsaw-fix-title{
     display: none;
+}
+.jigsaw-ct{
     width: 100%;
     background: rgba(255,255,255,1);
     border-radius: 10px 10px 0px 0px;
@@ -582,10 +584,45 @@
     padding: 10px 20px;
     box-sizing: border-box;
 }
-
-
-
-
+.title-name{
+    height: 40px;
+    line-height: 40px;
+    color: #353535;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+.title-val textarea{
+    height: 80px;
+    background: rgba(245,246,247,1);
+    border-radius: 5px;
+    border: 0;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    color: #353535;
+    outline-style: none;
+    margin-top: 10px;
+    font-size: 16px;
+}
+.title-val>div{
+    padding: 10px 0;
+}
+.btn{
+    border-radius: 4px;
+    background-color: #0083FF;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+}
+.jigsaw-fix-padding{
+    /* display: none; */
+}
+.jigsaw-fix-bg{
+    display: none;
+}
 /* --------------------------------------ping-footer----------------------------------------------------- */
 
 #fix .ping-footer{
