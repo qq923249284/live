@@ -445,7 +445,7 @@
 
 /* -------------------------------------jigsaw--------------------------------------------------------- */
 .fix-jigsaw{
-    /* display: none; */
+    display: none;
 }
 #fix .jigsaw{
     display: flex;
@@ -496,7 +496,7 @@
 .jigsaw-img img{
     box-sizing: border-box;
     width: 100%;
-    padding: 20px;
+    /* padding: 20px; */
 }
 .jigsaw-info{
     background: #fff;
@@ -618,7 +618,7 @@
     font-size: 14px;
 }
 .jigsaw-fix-padding{
-    /* display: none; */
+    display: none;
 }
 .jigsaw-fix-bg{
     display: none;

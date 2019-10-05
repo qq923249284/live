@@ -11,7 +11,6 @@ var nav = $("#nav")
 var navContent = $(".nav-content")
 $(window).scroll(function () {
     layoutList.hide();
-    // console.log($(window).scrollTop())
     if (nav.offset().top <= $(window).scrollTop()) {
         goTop.show();
         navContent.css({
@@ -45,20 +44,12 @@ function getPage(page) {
         })
         for (let i = 0; i < items.length; i++) {
             var oImg = new Image();
-            oImg.src = "./img/" + items[i].src;
-            console.log(oImg)
+            oImg.src = items[i].src;
         }
         $(oImg).on("load", function () {
-            // console.log(items)
             juzheng(true);
             pingBg = $(".pingBg")
         })
-        $(window).on("load", function () {
-            console.log(1);
-
-
-        })
-
     });
 }
 getPage(1);
@@ -74,7 +65,7 @@ function juzhengDom() {
 function juzheng(sunxu) {
     status = 2;
     for (let i = 0; i < items.length; i++) {
-        var img = $("<img id='" + items[i].id + "' src='./img/" + items[i].src + "'>")
+        var img = $("<img id='" + items[i].id + "' src='" + items[i].src + "'>")
         var div1 = $("<div></div>");
         var div2 = $("<div class='pingBg'><span></spn></div>");
         div1.append(img, div2)
@@ -104,7 +95,7 @@ function gongGeDom() {
 
 function gongGe(sunxu, num) {
     for (let i = 0; i < items.length; i++) {
-        var img = $("<img id='" + items[i].id + "' src='./img/" + items[i].src + "'style='height:100%;object-fit:cover;'>")
+        var img = $("<img id='" + items[i].id + "' src='" + items[i].src + "'style='height:100%;object-fit:cover;'>")
         var div1;
         var div2 = $("<div class='pingBg'><span></spn></div>");
         if (num === 3) {
@@ -174,7 +165,6 @@ var fixQr = $(".fix-qr");
 var titleRight = $(".title-right");
 var fixDetails = $(".fix-details");
 var detailsClose = $(".fix-details .close");
-var puzzle = $(".puzzle");
 var ping = $(".ping")
 var pingPingjie = $(".ping-pingjie")
 var pingGongge = $(".ping-gongge")
@@ -212,10 +202,6 @@ detailsClose.click(function () {
     fixBg.fadeOut();
 })
 
-puzzle.click(function () {
-    ping.show();
-    fixBg.show();
-})
 
 
 
@@ -299,7 +285,7 @@ var mySwiper = new Swiper('.swiper-container', {
     virtual: {
         slides: [],
         renderSlide: function (slide, index) {
-            return '<div class="swiper-slide"><div class="swiper-zoom-container">' + '<img src="./img/' + slide + '">' + '</div></div>';
+            return '<div class="swiper-slide"><div class="swiper-zoom-container">' + '<img src="' + slide + '">' + '</div></div>';
         },
     },
     pagination: {
@@ -318,10 +304,8 @@ var mySwiper = new Swiper('.swiper-container', {
             zan.text(33)
             if (mySwiper.isBeginning) {
                 hint("已经滑动到第一张");
-                console.log('是');
             } else if (mySwiper.isEnd) {
                 hint("已经滑动到最后一张");
-                console.log('不是');
             }
         },
     },
@@ -347,3 +331,32 @@ function createSwiper() {
     messageFont.text("查看原图")
     messageSize.text("22kb")
 }
+
+
+
+
+$(".puzzle").click(function () {
+    ping.show();
+    fixBg.show();
+})
+$(".tolive").click(function(){
+    $(".fix-jigsaw").show();
+})
+$(".jigsaw-footer div").eq(0).click(function(){
+    $(".jigsaw-fix-title").show();
+    $("textarea").val($(".info-title").text())
+})
+$(".title-btn").click(function(){
+    $(".info-title").text($("textarea").val())
+    if($(".title-val input:checked")){
+        // $(".info-time").hide();
+    }
+    $(".jigsaw-fix-title").hide();
+})
+
+$(".jigsaw-footer div").eq(1).click(function(){
+    $(".jigsaw-fix-padding").show();
+})
+$(".jigsaw-footer div").eq(2).click(function(){
+    $(".jigsaw-fix-bg").show();
+})
